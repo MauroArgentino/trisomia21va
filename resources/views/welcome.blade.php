@@ -84,7 +84,7 @@
                     src="https://www.youtube.com/embed/DiItGE3eAyQ">
                     </iframe> 
                 <div class="title m-b-md">
-                    Mauro el más lindo
+                    Página Principal
                 </div>
 
                 <div class="links">

@@ -12,12 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('web.welcome');
 });
 
 Route::group(['namespace' => 'Admin'], function () {
 
     Route::get('admin/home', 'HomeController@index')->name('admin.home');
+
+    Route::get('admin/post', 'PostsController@index')->name('admin.post.post');
+
+    Route::get('admin/tag', 'TagsController@index')->name('admin.tag.tag');
+
+    Route::get('admin/categoria', 'CategoriasController@index')->name('admin.categoria.categoria');
 
     // Admin auth Routes
 
