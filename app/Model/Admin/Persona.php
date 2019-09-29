@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Model\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Persona extends Model
 {
     //
 }

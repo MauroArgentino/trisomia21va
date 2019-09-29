@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Model\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    //
+    protected $fillable = ['descripcion'];
 }

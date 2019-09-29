@@ -3,8 +3,8 @@
 <head>
     @include('web.layouts.head')
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
+<body>
+    <div class="content">
     @include('web.layouts.header')
 
         @yield('main-content')

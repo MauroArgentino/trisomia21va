@@ -10,7 +10,7 @@
             @if ($submenu['submenu'] == [])
                 <li><a href="{{ url('menu', ['id' => $submenu['id'], 'slug' => $submenu['slug']])}}" class="nav-link dropdown-item">{{ $submenu['name']}}</a></li>
             @else
-                @include('partials.menu-item', ['item' => $submenu])
+                @include('web.partials.menu-item', ['item' => $submenu])
             @endif
             
         @endforeach
