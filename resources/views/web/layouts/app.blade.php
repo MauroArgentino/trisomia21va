@@ -8,6 +8,7 @@
     @include('web.layouts.header')
 
         @yield('main-content')
+        @yield('main-content')
 
     @include('web.layouts.footer')
     </div>

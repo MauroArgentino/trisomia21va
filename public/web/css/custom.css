@@ -1,0 +1,19 @@
+
+header {
+	background-color: pink;
+	min-height: 200px;
+}
+
+nav {
+    z-index:200;
+
+}
+.fixed {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	bottom:1;
+}
+.nav-placeholder {
+	    margin: 0 0 40px 0;
+}
