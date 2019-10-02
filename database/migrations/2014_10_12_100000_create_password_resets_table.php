@@ -1,4 +1,4 @@
-<?php
+, 190<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -14,8 +14,8 @@ class CreatePasswordResetsTable extends Migration
     public function up()
     {
         Schema::create('password_resets', function (Blueprint $table) {
-            $table->string('email')->index();
-            $table->string('token');
+            $table->string('email', 190)->index();
+            $table->string('token', 190);
             $table->timestamp('created_at')->nullable();
         });
     }

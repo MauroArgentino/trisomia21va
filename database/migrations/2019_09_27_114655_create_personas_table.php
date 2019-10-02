@@ -21,7 +21,7 @@ class CreatePersonasTable extends Migration
             $table->string('domicilio', 100);
             $table->string('telefono', 20);
             $table->string('dni', 12);
-            $table->string('fecha_nacimiento');
+            $table->date('fecha_nacimiento');
             $table->string('slug', 190)->unique();
             $table->unsignedBigInteger('localidad_id');
             $table->timestamps();
