@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('web.welcome');
+Route::group(['namespace' => 'Web'], function() {
+	Route::get('/', 'WelcomeController@index')->name('web.welcome');
 });
 
 Route::group(['namespace' => 'Admin'], function () {

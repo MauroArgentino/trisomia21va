@@ -1,86 +1,25 @@
 @extends('web.layouts.app')
 
 @section('main-content')
-<div class="row">
-<div class="content col-md-9">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-            <h1>Blank Page</h1>
-          </div>
-      </div><!-- /.container-fluid -->
-    </section>
+<div class="posts col-md-8 col-md-offset-2">
 
-    <!-- Main content -->
-    <section class="content">
+  @foreach($posts as $post)
 
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Title</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fas fa-times"></i></button>
-          </div>
-        </div>
-        <div class="card-body">
-          Start creating your amazing application!
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          Footer
-        </div>
-        <!-- /.card-footer-->
+    <div class="card">
+      <div class="card-header bg-success">
+        {{ $post->titulo }}
       </div>
-      <!-- /.card -->
+      <div class="card-body">
+        @if ($post->imagen_id)
+          <img src="{{ $post->ruta_imagen }}" class="img-fluid rounded">
 
-    </section>
-    <!-- /.content -->
-  </div>
-
-  <div class="content col-md-3">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-              <h1>Blank Page</h1>
-          </div>
-        </div><!-- /.container-fluid -->
-      </section>
-  
-      <!-- Main content -->
-      <section class="content">
-  
-        <!-- Default box -->
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Title</h3>
-  
-            <div class="card-tools">
-              <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                <i class="fas fa-minus"></i></button>
-              <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-                <i class="fas fa-times"></i></button>
-            </div>
-          </div>
-          <div class="card-body">
-            Start creating your amazing application!
-          </div>
-          <!-- /.card-body -->
-          <div class="card-footer">
-            Footer
-          </div>
-          <!-- /.card-footer-->
-        </div>
-        <!-- /.card -->
-        
-      </section>
-      <!-- /.content -->
+        @endif
+         {{ $post->contenido }}
+         <a href="#" class="btn btn-primary float-right">Leer más</a>
+      </div>
     </div>
-  </div>
-  <!-- /.content-wrapper -->
+
+  @endforeach
+  {{ $posts->links() }}
+</div>
 @endsection

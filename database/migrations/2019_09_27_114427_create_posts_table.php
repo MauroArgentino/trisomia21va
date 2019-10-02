@@ -15,7 +15,7 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('titulo', 190);
+            $table->string('titulo');
             $table->string('slug', 190);
             $table->mediumText('contenido');
             $table->enum('estado', ['PUBLISHED', 'DRAFT'])->default('DRAFT');
@@ -26,6 +26,26 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('user_create_id');
             $table->unsignedBigInteger('user_modified_id')->default(0);
             $table->timestamps();
+
+            $table->foreign('imagen_id')
+            ->references('id')
+            ->on('imagens')
+            ->onDelete('Cascade');
+
+            $table->foreign('categoria_id')
+            ->references('id')
+            ->on('categorias')
+            ->onDelete('Cascade');
+
+            $table->foreign('user_create_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('Cascade');
+
+            $table->foreign('user_modified_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('Cascade');
         });
     }
 

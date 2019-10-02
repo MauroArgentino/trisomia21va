@@ -18,7 +18,15 @@ class Post extends Model
         'slug',
         'estado'];
 
-    public function imagenes(){
-        $this->tobelongMany(App\Model\Imagen::class);
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
+    }    
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function imagen(){
+        return $this->belongsTo(Imagen::class);
     }
 }

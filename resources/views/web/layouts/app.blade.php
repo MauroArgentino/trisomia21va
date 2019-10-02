@@ -4,13 +4,15 @@
     @include('web.layouts.head')
 </head>
 <body>
-    <div class="content">
+
     @include('web.layouts.header')
 
-        @yield('main-content')
+	<div class="container">
+
         @yield('main-content')
 
-    @include('web.layouts.footer')
+    	@include('web.layouts.footer')
     </div>
+    
 </body>
 </html>
