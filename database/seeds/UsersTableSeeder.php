@@ -2,6 +2,7 @@
 
 use App\Model\Admin\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class UsersTableSeeder extends Seeder
 {
@@ -17,6 +18,7 @@ class UsersTableSeeder extends Seeder
        
         User::create([
             'name' => 'Mauro J. Montenegro',
+            'slug' => Str::slug('Mauro J. Montenegro'),
             'email' => 'mauro.montenegro@gmail.com',
             'password' => bcrypt('admin')
         ]);

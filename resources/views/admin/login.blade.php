@@ -17,34 +17,42 @@
   <link rel="stylesheet" href="{{asset('admin/dist/css/adminlte.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+<style>
+  .body {
+  background-image: url("{{asset('admin/login/img/images.jpg')}}") no-repeat center center fixed;
+background-size: cover;
+}
+</style>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href=""><b>Trisomia 21 Villa Ángela</b> Administrador</a>
+    <a href=""><b>Trisomia 21 Villa Ángela</b> Administración</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Inicia sesión para ingresar</p>
 
       <form action="{{ route('admin.login')}}" method="post">
         @csrf
-        <div class="input-group mb-3">
+        <div class="input-group mb-3" {{ $errors->has('email') ? 'has-error' : '' }}>
           <input type="email" class="form-control" name="email" placeholder="Correo Electrónico">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
+          {!! $errors->first('email', '<span class="help-block">:message</span>') !!}
         </div>
-        <div class="input-group mb-3">
+        <div class="input-group mb-3" {{ $errors->has('password') ? 'has-error' : '' }}>
           <input type="password" class="form-control" name="password" placeholder="Contraseña">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
+          {!! $errors->first('password', '<span class="help-block">:message</span>') !!}
         </div>
         <div class="row">
           <div class="col-8">
@@ -64,7 +72,7 @@
       </form>
 
       <p class="mb-1">
-        <a href="#">I forgot my password</a>
+        <a href="#">Olvidé mi contraseña</a>
       </p>
     </div>
     <!-- /.login-card-body -->

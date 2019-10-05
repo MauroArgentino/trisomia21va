@@ -24,7 +24,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-            view()->composer('web.welcome', function($view) {
+            view()->composer('web.home', function($view) {
+                $view->with('menus', Menu::menus());
+            });
+            view()->composer('web.post', function($view) {
                 $view->with('menus', Menu::menus());
             });
     }

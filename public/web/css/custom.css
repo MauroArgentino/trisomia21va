@@ -1,37 +1,36 @@
-/*
-header {
-	background-color: pink;
-	min-height: 200px;
+* {box-sizing: border-box}
+
+.navbar {
+  width: 100%;
+  background-color: #40b8cf;
+  overflow: auto;
 }
 
-nav {
-    z-index:200;
-
-}
-.fixed {
-	position: fixed;
-	top: 0;
-	width: 100%;
-	bottom:1;
-}
-.nav-placeholder {
-	    margin: 0 0 40px 0;
-}*/
-
- /* Style the navbar */
-#navbar {
-  overflow: hidden;
-  background-color: #333;
-}
-
-/* Navbar links */
-#navbar a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px;
+.navbar a {
+  float: center;
+  padding: 12px;
+  color: white;
   text-decoration: none;
+  font-size: 17px;
+  width: 25%; /* Four links of equal widths */
+  text-align: center;
+}
+
+.navbar a:hover {
+  background-color: #000;
+}
+
+.navbar a.active {
+  background-color: #4CAF50;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
 }
 
 /* Page content */
@@ -44,11 +43,12 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
+  bottom:1;
 }
 
 /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
 .sticky + .posts {
-  padding-top: 60px;
+  padding-top: 0px;
 } 
 
 .parallax {
@@ -63,4 +63,20 @@ nav {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.dropdown-menu .sub-menu {
+    left: 100%;
+    position: absolute;
+    top: 0;
+    visibility: hidden;
+    margin-top: -1px;
+}
+
+.dropdown-menu li:hover .sub-menu {
+    visibility: visible;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
 }

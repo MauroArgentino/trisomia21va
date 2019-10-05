@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/admin-login';
 
      /**
      * Show the application's login form.
@@ -48,15 +48,29 @@ class LoginController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function login(Request $request)
+    public function login(/*Request $request*/)
     {
-        $this->validateLogin($request);
+
+         $credentials = $this->validate(request(), [
+            'email' => 'email|required|string',
+            'password' => 'required|string',
+         ]);
+
+         if (Auth::attempt($credentials)) {
+
+            return "El usuario se ha logueado correctamente.";
+
+         }
+
+         return "Error en la autenticación.";
+
+       /* $this->validateLogin($request);
 
         if ($this->attemptLogin($request)) {
             return $this->sendLoginResponse($request);
         }
 
-        return $this->sendFailedLoginResponse($request);
+        return $this->sendFailedLoginResponse($request);*/
     }
 
     /**
@@ -66,6 +80,6 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest');
     }
 }

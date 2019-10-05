@@ -3,6 +3,7 @@
 
 use App\Model\Web\Menu;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class MenuTableSeeder extends Seeder
 {
@@ -14,20 +15,20 @@ class MenuTableSeeder extends Seeder
     public function run()
     {
         $m1 = factory(Menu::class)->create([
-            'name' => 'Opción 1',
-            'slug' => 'opcion1',
+            'name' => 'Trisomia 21',
+            'slug' => 'trisomia-21',
             'parent' => 0,
             'order' => 0,
         ]);
         factory(Menu::class)->create([
-            'name' => 'Opción 2',
-            'slug' => 'opcion2',
+            'name' => '¿Quiénes somos?',
+            'slug' => 'quienes-somos',
             'parent' => 0,
             'order' => 1,
         ]);
         $m3 = factory(Menu::class)->create([
-            'name' => 'Opción 3',
-            'slug' => 'opcion3',
+            'name' => 'Síndrome de Down',
+            'slug' => Str::slug('Síndrome de Down'),
             'parent' => 0,
             'order' => 2,
         ]);

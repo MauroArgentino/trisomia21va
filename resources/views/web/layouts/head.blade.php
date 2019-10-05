@@ -3,23 +3,6 @@
 <title>Trisomia 21 VA | Sitio Web</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-    .dropdown-menu .sub-menu {
-    left: 100%;
-    position: absolute;
-    top: 0;
-    visibility: hidden;
-    margin-top: -1px;
-}
-
-.dropdown-menu li:hover .sub-menu {
-    visibility: visible;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-</style>
 <!-- Font Awesome -->
 <link rel="stylesheet" href="{{asset('web/plugins/fontawesome-free/css/all.min.css')}}">
 <!-- Ionicons -->

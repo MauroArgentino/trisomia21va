@@ -7,12 +7,11 @@
 
     @include('web.layouts.header')
 
-	<div class="container">
+	@yield('main-content')
+    
+    @include('web.layouts.footer')
 
-        @yield('main-content')
-
-    	@include('web.layouts.footer')
-    </div>
+    
     
 </body>
 </html>

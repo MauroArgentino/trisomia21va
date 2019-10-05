@@ -3,6 +3,7 @@
 namespace App\Model\Admin;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Model\Admin\User;
 
 class Post extends Model
 {
@@ -23,7 +24,11 @@ class Post extends Model
     }    
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo('User', 'id');
+    }
+
+    public function categoria(){
+        return $this->belongsTo(Categoria::class);
     }
 
     public function imagen(){

@@ -4,10 +4,13 @@
 
 use Faker\Generator as Faker;
 use App\Model\Admin\Categoria;
+use Illuminate\Support\Str;
 
 $factory->define(Categoria::class, function (Faker $faker) {
+	$descripcion = $faker->unique()->word(rand(5,15));
 
     return [
-        'descripcion' => $faker->unique()->word(rand(5,15))
+        'descripcion' => $descripcion,
+        'slug' => Str::slug($descripcion)
     ];
 });
