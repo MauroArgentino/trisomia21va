@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Model\Admin\User;
 
 class LoginController extends Controller
 {
@@ -28,16 +29,23 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin-login';
+    protected $redirectTo;
 
      /**
      * Show the application's login form.
      *
      * @return \Illuminate\Http\Response
      */
+
+    protected function redirectTo(){
+
+        $this->redirectTo = '/admin/home';
+        return $this->redirectTo;  
+    }
+
     public function showLoginForm()
     {
-        return view('admin.login');
+       return view('admin.login');
     }
 
      /**
@@ -48,29 +56,24 @@ class LoginController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function login(/*Request $request*/)
+    public function login(Request $request)
     {
-
-         $credentials = $this->validate(request(), [
-            'email' => 'email|required|string',
-            'password' => 'required|string',
-         ]);
-
-         if (Auth::attempt($credentials)) {
-
-            return "El usuario se ha logueado correctamente.";
-
-         }
-
-         return "Error en la autenticación.";
-
-       /* $this->validateLogin($request);
+        $this->validateLogin($request);
 
         if ($this->attemptLogin($request)) {
             return $this->sendLoginResponse($request);
         }
 
-        return $this->sendFailedLoginResponse($request);*/
+        return $this->sendFailedLoginResponse($request);
+    }
+
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return $this->loggedOut($request) ?: redirect('/');
     }
 
     /**
@@ -80,6 +83,6 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest', ['only' => 'showLoginForm']);
     }
 }

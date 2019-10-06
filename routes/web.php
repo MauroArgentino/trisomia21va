@@ -29,7 +29,7 @@ Route::group(['namespace' => 'Web'], function() {
 
 Route::group(['namespace' => 'Admin'], function () {
 
-    Route::get('admin/home', 'HomeController@index')->name('admin.home');
+    Route::get('admin/home', 'HomeController@index')->name('admin.home')->middleware();
 
     Route::get('admin/post', 'PostsController@index')->name('admin.post.post');
 
@@ -42,6 +42,8 @@ Route::group(['namespace' => 'Admin'], function () {
     Route::get('admin-login','Auth\LoginController@showLoginForm')->name('admin.login');
 
     Route::post('admin-login', 'Auth\LoginController@login')->name('admin.login');
+
+    Route::get('admin-logout','Auth\LoginController@logout')->name('admin.logout');
     
 });
 
