@@ -109,14 +109,41 @@
             <span class="float-right text-muted text-sm">2 days</span>
           </a> --}}
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">Ver todas las notificaciones</a>
+          
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="fas fa-user-cog"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">12 Notifiaciones</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-3"></i> 4 Nuevos Mensajes
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+         <a href="{{route('admin.logout') }}" class="dropdown-item">
+            <i class="fas fa-sign-out-alt mr-3 float-right"></i>Salir
+          </a>      
+        </div>
+      </li>
+     {{--  <li class="nav-item dropdown">
+        <a class="nav-link" data-toogle="dropdown" href="#">
           <i class="fas fa-th-large"></i>
         </a>
-      </li>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">12 Notifiaciones</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-3"></i> 4 Nuevos Mensajes
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="{{route('admin.logout') }}" class="dropdown-item dropdown-footer">
+            <i class="fas fa-sign-out-alt mr-3 float-right">Salir</i>
+          </a>
+      </li> --}}
     </ul>
   </nav>
   <!-- /.navbar -->
