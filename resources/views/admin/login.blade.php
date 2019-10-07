@@ -14,39 +14,13 @@
   <!-- icheck bootstrap -->
   <link rel="stylesheet" href="{{asset('admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
   <!-- Toastr -->
-  <link rel="stylesheet" href="{{asset('admin/plugins\toastr\toastr.min.css')}}">
+  <link rel="stylesheet" href="{{asset('admin/plugins/toastr/toastr.min.css')}}">
 
   <link rel="stylesheet" href="{{asset('admin/dist/css/adminlte.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition login-page">
-  @if (session()->has('flash'))
-    <script type="text/javascript">
-  $(function () {
-       toastr.info("{{session('flash')}}","",
-        {
-  "closeButton": false,
-  "debug": false,
-  "newestOnTop": false,
-  "progressBar": false,
-  "positionClass": "toast-top-full-width",
-  "preventDuplicates": false,
-  "onclick": null,
-  "showDuration": "300",
-  "hideDuration": "1000",
-  "timeOut": "5000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut"
-})
-
-  });
-</script>
-
-  @endif
 <div class="login-box">
   <div class="login-logo">
     <a href=""><b>Trisomia 21 Villa Ángela</b> Administración</a>
@@ -115,7 +89,12 @@
 <!-- Toastr -->
 <script src="{{asset('admin/plugins/toastr/toastr.min.js')}}"></script>
 
-
-
+<script>
+  $(function () {
+    if({{ session()->has('notification') }}) {
+      toastr.info("Por favor, inicie sesión.", "Acceso no autorizado");
+   }
+ });
+</script>
 </body>
 </html>

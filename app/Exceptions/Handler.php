@@ -46,8 +46,13 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        $notification = array(
+            'message' => 'Por favor inicie sesión', 
+            'alert_type' => 'info',
+        );
+
         if ($exception instanceof \Illuminate\Auth\AuthenticationException){
-            return redirect('/admin-login')->with('flash', 'Por favor inicie sesión');
+            return redirect('/admin-login')->with('notification', $notification);
         }
         return parent::render($request, $exception);
     }
