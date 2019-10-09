@@ -16,7 +16,9 @@ class MensajesController extends Controller
      */
     public function index()
     {
-        //
+        $mensajes = Mensaje::all();
+        $cantidad_mensajes = Mensaje::where('estado', 'NO_LEIDO')->count();
+        return view('admin.bandejaentrada.bandejaentrada', compact('cantidad_mensajes', 'mensajes'));
     }
 
     /**

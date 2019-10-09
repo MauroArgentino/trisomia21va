@@ -6,7 +6,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('admin.home')}}" class="nav-link">Principal</a>
+        <a href="{{ route('admin.home') }}" class="nav-link">Principal</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contacto</a>
@@ -89,13 +89,13 @@
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
-          <span class="badge badge-danger navbar-badge">12</span>
+          <span class="badge badge-danger navbar-badge">{{ $cantidad_mensajes }}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">12 Notificaciones</span>
+          <span class="dropdown-item dropdown-header">{{ $cantidad_mensajes }} Notificaciones</span>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-3"></i> 4 Nuevos Mensajes
+          <a href="{{ route('admin.bandejaentrada') }}" class="dropdown-item">
+            <i class="fas fa-envelope mr-3"></i> {{ $cantidad_mensajes }} Nuevos Mensajes
             <span class="float-right text-muted text-sm">3 mins</span>
           </a>
           <div class="dropdown-divider"></div>
