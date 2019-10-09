@@ -8,6 +8,7 @@ use App\Model\Admin\Post;
 use App\Model\Admin\Imagen;
 use App\Model\Admin\Categoria;
 use App\Model\Admin\Tag;
+use App\Model\Admin\User;
 
 class PageController extends Controller
 {
@@ -49,5 +50,10 @@ class PageController extends Controller
     			->paginate(6);
 
     	return view('web.home', compact('posts'));
+    }
+
+    public function contacto(){
+
+        return view('web.contacto');
     }
 }

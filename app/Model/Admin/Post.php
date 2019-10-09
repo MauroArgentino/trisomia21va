@@ -23,8 +23,12 @@ class Post extends Model
         return $this->belongsToMany(Tag::class);
     }    
 
-    public function user(){
-        return $this->belongsTo('User', 'id');
+    public function user_create(){
+        return $this->belongsTo(User::class, 'user_create_id', 'id');
+    }
+
+    public function user_modified(){
+        return $this->belongsTo(User::class, 'user_modified_id', 'id');
     }
 
     public function categoria(){

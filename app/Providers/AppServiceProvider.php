@@ -30,5 +30,8 @@ class AppServiceProvider extends ServiceProvider
             view()->composer('web.post', function($view) {
                 $view->with('menus', Menu::menus());
             });
+            view()->composer('web.contacto', function($view) {
+                $view->with('menus', Menu::menus());
+            });
     }
 }

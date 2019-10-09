@@ -25,4 +25,4 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 <!-- CDN Bootstrap 4.3.1 -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="{{asset('web/css/custom.css')}}">
+{{-- <link rel="stylesheet" type="text/css" href="{{asset('web/css/custom.css')}}"> --}}

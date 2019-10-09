@@ -37,7 +37,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function posts(){
-        return $this->hasMany('Post', 'user_create_id', 'id');
+    public function posts_user_create(){
+        // return $this->hasMany('Post', 'user_create_id', 'id');
+        return $this->hasMany(Post::class);
+    }
+
+    public function posts_user_modified(){
+        // return $this->hasMany('Post', 'user_modified_id', 'id');
+        return $this->hasMany(Post::class);
+    }
+
+    public function mensajes(){
+        // return $this->hasMany('Post', 'user_modified_id', 'id');
+        return $this->hasMany(Mensaje::class);
     }
 }

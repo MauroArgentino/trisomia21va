@@ -25,6 +25,8 @@ Route::group(['namespace' => 'Web'], function() {
 
     Route::get('usuario/{user}', 'PageController@user')->name('web.user');
 
+    Route::get('home/contacto', 'PageController@contacto')->name('web.contacto');
+
 });
 
 Route::group(['namespace' => 'Admin'], function () {
@@ -36,6 +38,7 @@ Route::group(['namespace' => 'Admin'], function () {
     Route::get('admin/tag', 'TagsController@index')->name('admin.tag.tag');
 
     Route::get('admin/categoria', 'CategoriasController@index')->name('admin.categoria.categoria');
+    Route::post('home/contacto', 'MensajesController@store')->name('admin.mensajes.store');
 
     // Admin auth Routes
 

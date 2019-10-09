@@ -23,7 +23,7 @@
            @foreach ($post->tags as $tag)
               <a href="{{ route('web.tag', $tag->slug)}}">{{ $tag->descripcion }}</a>
            @endforeach
-           <span class="float-right">Publicado el {{ $post->created_at }} por {{-- <a href="{{ route('web.user', $post->user->slug) }}">{{ $post->user->name }}</a> --}}</span>
+           <span class="float-right">Publicado el {{ $post->created_at }} por <a href="{{ route('web.user', $post->user_create->slug) }}">{{ $post->user_create->name }}</a></span>
         </div>
       </div>
 
