@@ -33,7 +33,9 @@
                 <li class="nav-item active">
                   <a href="#" class="nav-link">
                     <i class="fas fa-inbox"></i> Bandeja de entrada
-                    <span class="badge bg-primary float-right">{{ $cantidad_mensajes }}</span>
+                    @if ($cantidad_mensajes > 0)
+                        <span class="badge bg-primary float-right">{{ $cantidad_mensajes }}</span>
+                    @endif
                   </a>
                 </li>
                {{--  <li class="nav-item">
@@ -104,7 +106,7 @@
 
               <div class="card-tools">
                 <div class="input-group input-group-sm">
-                  <input type="text" class="form-control" placeholder="Search Mail">
+                  <input type="text" class="form-control" placeholder="Buscar mensaje">
                   <div class="input-group-append">
                     <div class="btn btn-primary">
                       <i class="fas fa-search"></i>
@@ -144,15 +146,19 @@
                    <tr>
                     <td>
                       <div class="icheck-primary">
-                        <input type="checkbox" value="" id="check15">
+                        <input type="checkbox" value="" id="">
                         <label for="check15"></label>
                       </div>
                     </td>
                     <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-                    <td class="mailbox-name"><a href="read-mail.html">{{$mensaje->apellido_y_nombres}}</a></td>
-                    <td class="mailbox-subject"><b>{{ $mensaje->asunto }}
+                    <td class="mailbox-name"><a href="{{ route ('admin.leermensaje', 'id='.$mensaje->id) }}">{{$mensaje->apellido_y_nombres}}</a></td>
+                    <td class="mailbox-subject">
+                      @if ($mensaje->estado === 'NO_LEIDO')
+                        <b>
+                      @endif
+                      {{ $mensaje->asunto }}
                     </td>
-                    <td class="mailbox-attachment"><i class="fas fa-paperclip"></i></td>
+                   {{--  <td class="mailbox-attachment"><i class="fas fa-paperclip"></i></td> --}}
                     <td class="mailbox-date">{{ $mensaje->created_at }}</td>
                   </tr>
                   @endforeach

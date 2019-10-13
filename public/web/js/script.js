@@ -1,24 +1,3 @@
-/*jQuery(document).ready(function()
-{
-var navOffset = jQuery("nav").offset().top;
-
-jQuery("nav").wrap('<div class="nav-placeholder"></div>');
-
-jQuery(".nav-placeholder").height(jQuery("nav").outerHeight());
-
-jQuery(window).scroll(function()
-{
-var scrollPos = jQuery(window).scrollTop();
-
-if (scrollPos>=navOffset)
-{
-	jQuery("nav").addClass("fixed");
-
-}else {
-	jQuery("nav").removeClass("fixed");
-}
-});
-});*/
 // When the user scrolls the page, execute myFunction
 window.onscroll = function() {myFunction()};
 

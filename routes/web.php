@@ -27,6 +27,12 @@ Route::group(['namespace' => 'Web'], function() {
 
     Route::get('home/contacto', 'PageController@contacto')->name('web.contacto');
 
+    Route::get('createcaptcha', 'CaptchaController@create');
+
+    Route::post('captcha', 'CaptchaController@captchaValidate')->name('web.captcha');
+
+    Route::get('refreshcaptcha', 'CaptchaController@refreshCaptcha')->name('web.refreshcaptcha');
+
 });
 
 Route::group(['namespace' => 'Admin'], function () {
@@ -48,7 +54,13 @@ Route::group(['namespace' => 'Admin'], function () {
 
     Route::get('admin-logout','Auth\LoginController@logout')->name('admin.logout');
 
-    Route::get('admin/home/bandejaentrada', 'MensajesController@index')->name('admin.bandejaentrada');
+    Route::get('admin/home/bandejaentrada', 'MensajesController@index')->name('admin.bandejaentrada')->middleware();
+
+    Route::get('admin/home/bandejaentrada/mensaje', 'MensajesController@index')->name('admin.leermensaje')->middleware();
+	
+    Route::get('admin/home/evento', 'AgendasController@index')->name('admin.evento.index')->middleware();
+    
+    Route::post('admin/home/evento', 'AgendasController@index')->name('admin.evento.store')->middleware();
     
 });
 

@@ -1,53 +1,19 @@
-* {box-sizing: border-box}
-
-.navbar {
-  width: 100%;
-  background-color: #40b8cf;
-  overflow: auto;
-}
-
-.navbar a {
-  float: center;
-  padding: 12px;
-  color: white;
-  text-decoration: none;
-  font-size: 17px;
-  width: 25%; /* Four links of equal widths */
-  text-align: center;
-}
-
-.navbar a:hover {
-  background-color: #000;
-}
-
-.navbar a.active {
-  background-color: #4CAF50;
-}
-
-@media screen and (max-width: 500px) {
-  .navbar a {
-    float: none;
-    display: block;
-    width: 100%;
-    text-align: left;
-  }
-}
-
 /* Page content */
-.posts {
+.content {
   padding: 16px;
 }
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
 .sticky {
   position: fixed;
+  z-index: 5;
   top: 0;
   width: 100%;
   bottom:1;
 }
 
 /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .posts {
+.sticky + .contents {
   padding-top: 0px;
 } 
 
@@ -79,4 +45,14 @@
 
 .dropdown:hover .dropdown-menu {
     display: block;
+}
+
+.navbar ul li a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  width: 25%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+  text-align: center; /* If you want the text to be centered */
 }

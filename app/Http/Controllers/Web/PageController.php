@@ -9,14 +9,16 @@ use App\Model\Admin\Imagen;
 use App\Model\Admin\Categoria;
 use App\Model\Admin\Tag;
 use App\Model\Admin\User;
+use App\Model\Web\Agenda;
 
 class PageController extends Controller
 {
     public function web(){
-    	$posts = Post::orderBy('posts.id', 'DESC')->where('estado', 'PUBLISHED')
+    	$posts = Post::orderBy('id', 'DESC')->where('estado', 'PUBLISHED')
     	->paginate(6);
+        $eventos = Agenda::orderBy('fechaFin', 'DESC')->get();
 
-    	return view('web.home', compact('posts'));
+    	return view('web.home', compact('posts', 'eventos'));
     }
 
     public function post($slug){

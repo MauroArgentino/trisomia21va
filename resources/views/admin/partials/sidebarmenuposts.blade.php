@@ -18,3 +18,10 @@
       <p>Tags</p>
     </a>
   </li>
+  
+  <li class="nav-item">
+    <a href="{{ route('admin.evento.index' )}}" class="nav-link">
+      <i class="far fa-circle nav-icon"></i>
+      <p>Evento</p>
+    </a>
+  </li>

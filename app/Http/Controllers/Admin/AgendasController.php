@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Web\Mensaje;
 
-
-class MensajesController extends Controller
+class AgendasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,8 @@ class MensajesController extends Controller
      */
     public function index()
     {
-        $mensajes = Mensaje::orderBy('id', 'DESC')->get();
-        $cantidad_mensajes = Mensaje::where('estado', 'NO_LEIDO')->count();
-        return view('admin.mensaje.bandejaentrada', compact('cantidad_mensajes', 'mensajes'));
+		$cantidad_mensajes = Mensaje::where('estado', 'NO_LEIDO')->count();
+        return view('admin.agenda.evento', compact('cantidad_mensajes'));
     }
 
     /**
@@ -39,9 +37,7 @@ class MensajesController extends Controller
      */
     public function store(Request $request)
     {
-       $this->validate($request,[ 'apellido_y_nombres'=>'required', 'email'=>'required', 'asunto'=>'required', 'mensaje'=>'required']);
-        Mensaje::create($request->all());
-        return redirect()->route('web.contacto')->with('success','Registro creado satisfactoriamente');
+        //
     }
 
     /**

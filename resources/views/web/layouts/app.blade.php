@@ -10,8 +10,6 @@
 	@yield('main-content')
     
     @include('web.layouts.footer')
-
-    
     
 </body>
 </html>

@@ -8,9 +8,9 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ route('admin.home') }}" class="nav-link">Principal</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
+     {{--  <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contacto</a>
-      </li>
+      </li> --}}
     </ul>
 
     <!-- SEARCH FORM -->
@@ -88,8 +88,10 @@
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
+          <i class="fas fa-bell"></i>
+          @if ($cantidad_mensajes > 0)
           <span class="badge badge-danger navbar-badge">{{ $cantidad_mensajes }}</span>
+          @endif
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <span class="dropdown-item dropdown-header">{{ $cantidad_mensajes }} Notificaciones</span>
